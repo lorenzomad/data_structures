@@ -39,8 +39,10 @@ const LinkedList = () => {
             }
             return size
         }
+    }
 
-         
+    const head = () => {
+        return _listHead
     }
 
 
@@ -58,6 +60,7 @@ const LinkedList = () => {
         append,
         prepend,
         size,
+        head,
     }
 
 }

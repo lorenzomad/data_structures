@@ -50,3 +50,18 @@ test('check size of list with 2 nodes', () => {
     expect(testList.size()).toBe(2)
     
 });
+
+test('head of empty list', () => {
+    expect(testList.head()).toBe(null)
+});
+
+test('head of non-empty list ', () => {
+    
+    const node1 = Node(1)
+    testList.listHead = node1
+    expect(testList.head()).toBe(node1)
+    const node2 = Node(2)
+    testList.listHead.nextNode = node2
+    expect(testList.head()).toBe(node1)
+    
+});
