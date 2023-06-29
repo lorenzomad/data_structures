@@ -136,7 +136,8 @@ test('find valid', () => {
     const node2 = Node(5)
     testList.listHead.nextNode = node2
     const node3 = Node(10)
-    testList.listHead.nextNode = node3
+    testList.listHead.nextNode.nextNode = node3
+    expect(testList.find(1)).toBe(0)
     expect(testList.find(5)).toBe(1)
     expect(testList.find(10)).toBe(2)
 });
