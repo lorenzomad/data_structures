@@ -78,14 +78,20 @@ const LinkedList = () => {
 
     const pop = () => {
         if (_listHead != null){
-            let tmp = _listHead
-            let prev = _listHead //initialized to head to address size 1 case
-            while(tmp.nextNode != null) {
-                // keep track of the previous until i move to last  
-                prev = tmp
-                tmp = tmp.nextNode
+            // size 1 case
+            if (_listHead.nextNode === null) {
+                _listHead = null
+            } else{
+                let tmp = _listHead
+                let prev = null
+                while(tmp.nextNode != null) {
+                    // keep track of the previous until i move to last  
+                    prev = tmp
+                    tmp = tmp.nextNode
+                }
+                prev.nextNode = null
             }
-            prev.nextNode = null
+            
         } 
     }
 
