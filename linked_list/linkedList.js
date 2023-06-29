@@ -57,6 +57,27 @@ const LinkedList = () => {
         }
     }
 
+    const at = (index) => {
+        if (index < 0) {
+            console.log("choose a valid positive integer index")
+            return;
+        }
+        if (_listHead === null) {
+            return _listHead
+        }
+        let tmp = _listHead
+        while (index > 0) {
+            if (tmp.nextNode === null) {
+                return tmp.nextNode
+            }
+            tmp = tmp.nextNode
+            index--
+        }
+        return tmp
+    }
+
+    
+
     const printList = () => {
         _listHead.printNext()
     }
@@ -73,6 +94,7 @@ const LinkedList = () => {
         size,
         head,
         tail,
+        at,
     }
 
 }

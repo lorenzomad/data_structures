@@ -78,3 +78,17 @@ test('tail of non-empty list', () => {
     testList.listHead.nextNode = node2
     expect(testList.tail()).toBe(node2)
 });
+
+
+test('at existing index', () => {
+    const node1 = Node(1)
+    testList.listHead = node1
+    const node2 = Node(2)
+    testList.listHead.nextNode = node2
+    expect(testList.at(0)).toBe(node1)
+    expect(testList.at(1)).toBe(node2)
+});
+
+test('at non existing index', () => {
+    expect(testList.at(3)).toBe(null)
+});
