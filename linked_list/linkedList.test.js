@@ -163,3 +163,26 @@ test('toString non empty list', () => {
     testList.listHead.nextNode.nextNode = node3
     expect(testList.toString()).toBe("( 1 ) -> ( 5 ) -> ( 10 ) -> null")
 });
+
+
+test('insert at valid value', () => {
+    const node1 = Node(1)
+    testList.listHead = node1
+    const node2 = Node(5)
+    testList.listHead.nextNode = node2
+    const node3 = Node(10)
+    testList.listHead.nextNode.nextNode = node3
+    testList.insertAt(4,1)
+    expect(testList.listHead.nextNode).toBe(4)
+});
+
+test('insert at non valid value', () => {
+    const node1 = Node(1)
+    testList.listHead = node1
+    const node2 = Node(5)
+    testList.listHead.nextNode = node2
+    const node3 = Node(10)
+    testList.listHead.nextNode.nextNode = node3
+    testList.insertAt(4,11)
+    expect(testList.listHead.nextNode.nextNode).toBe(10)
+});
