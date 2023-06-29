@@ -103,6 +103,13 @@ test('pop when existing item', () => {
     testList.listHead = node1
     const node2 = Node(2)
     testList.listHead.nextNode = node2
-    testList.listHead.pop()
+    testList.pop()
     expect(testList.listHead.nextNode).toBe(null)
+});
+
+test('pop when 1 item', () => {
+    const node1 = Node(1)
+    testList.listHead = node1
+    testList.pop()
+    expect(testList.listHead).toBe(null)
 });
