@@ -129,3 +129,22 @@ test('contains invalid', () => {
     testList.listHead.nextNode = node2
     expect(testList.contains(2)).toBe(false)
 });
+
+test('find valid', () => {
+    const node1 = Node(1)
+    testList.listHead = node1
+    const node2 = Node(5)
+    testList.listHead.nextNode = node2
+    const node3 = Node(10)
+    testList.listHead.nextNode = node3
+    expect(testList.find(5)).toBe(1)
+    expect(testList.find(10)).toBe(2)
+});
+
+test('contains invalid', () => {
+    const node1 = Node(1)
+    testList.listHead = node1
+    const node2 = Node(5)
+    testList.listHead.nextNode = node2
+    expect(testList.contains(2)).toBe(null)
+});
