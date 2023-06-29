@@ -65,3 +65,16 @@ test('head of non-empty list ', () => {
     expect(testList.head()).toBe(node1)
     
 });
+
+test('tail of empty list', () => {
+    expect(testList.tail()).toBe(null)
+});
+
+test('tail of non-empty list', () => {
+    const node1 = Node(1)
+    testList.listHead = node1
+    expect(testList.tail()).toBe(node1)
+    const node2 = Node(2)
+    testList.listHead.nextNode = node2
+    expect(testList.tail()).toBe(node2)
+});

@@ -45,6 +45,17 @@ const LinkedList = () => {
         return _listHead
     }
 
+    const tail = () => {
+        if (_listHead === null) {
+            return null;
+        } else {
+            let tmp = _listHead
+            while(tmp.nextNode != null) {
+                tmp = tmp.nextNode;
+            }
+            return tmp
+        }
+    }
 
     const printList = () => {
         _listHead.printNext()
@@ -61,6 +72,7 @@ const LinkedList = () => {
         prepend,
         size,
         head,
+        tail,
     }
 
 }
