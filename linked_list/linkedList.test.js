@@ -92,3 +92,17 @@ test('at existing index', () => {
 test('at non existing index', () => {
     expect(testList.at(3)).toBe(null)
 });
+
+test('pop when no item', () => {
+    testList.pop()
+    expect(testList.listHead).toBe(null)
+});
+
+test('pop when existing item', () => {
+    const node1 = Node(1)
+    testList.listHead = node1
+    const node2 = Node(2)
+    testList.listHead.nextNode = node2
+    testList.listHead.pop()
+    expect(testList.listHead.nextNode).toBe(null)
+});
