@@ -149,3 +149,17 @@ test('contains invalid', () => {
     testList.listHead.nextNode = node2
     expect(testList.find(2)).toBe(null)
 });
+
+test('toString of empty list', () => {
+    expect(testList.toString()).toBe("null")
+});
+
+test('toString non empty list', () => {
+    const node1 = Node(1)
+    testList.listHead = node1
+    const node2 = Node(5)
+    testList.listHead.nextNode = node2
+    const node3 = Node(10)
+    testList.listHead.nextNode.nextNode = node3
+    expect(testList.toString()).toBe("( 1 ) -> ( 2 ) -> ( 3 ) -> null")
+});
