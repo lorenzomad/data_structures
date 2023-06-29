@@ -6,16 +6,27 @@ afterEach(() => {
     testTree = null
 })
 
-
-
-
-test('initialize tree', () => {
-    testTree = Tree([1, 3, 2])
-    expect(testTree.root).toBe(2)
+test('initialize tree with 1 value', () => {
+    testTree = Tree([1])
+    expect(testTree.root.value).toBe(1)
 });
 
-test('buildTree', () => {
-    expect(testTree.buildTree([5,2,3,4,1])).toBe(3)
+test('initialize tree with more  values', () => {
+    testTree = Tree([1, 3, 2])
+    expect(testTree.root.value).toBe(2)
+});
+
+
+test('buildTree ordered', () => {
+    testTree = Tree(null)
+    expect(testTree.buildTree([1,2,3,4,5]).value).toBe(3)
+
+    
+});
+
+test('buildTree not ordered', () => {
+    testTree = Tree(null)
+    expect(testTree.buildTree([5,3,2,1,4]).value).toBe(3)
 
     
 });
