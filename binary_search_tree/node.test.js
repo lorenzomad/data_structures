@@ -1,8 +1,12 @@
 import Node from "./node"
 let testNode 
 
-beforeAll(() => {
+beforeEach(() => {
     testNode = Node(4) 
+})
+
+afterEach(() => {
+    testNode = null
 })
 
 test('test value', () => {
@@ -10,13 +14,13 @@ test('test value', () => {
 });
 
 test('test left', () => {
-    node1 = Node(3)
-    testNode.left = node1
-    expect(testNode.left).toBe(node1)
+    const mockNode = 5
+    testNode.left = mockNode
+    expect(testNode.left).toBe(mockNode)
 });
 
 test('test right', () => {
-    node1 = Node(3)
-    testNode.right = node1
-    expect(testNode.right).toBe(node1)
+    const mockNode = 3
+    testNode.right = mockNode
+    expect(testNode.right).toBe(mockNode)
 });
