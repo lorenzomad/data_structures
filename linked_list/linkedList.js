@@ -95,6 +95,22 @@ const LinkedList = () => {
         } 
     }
 
+    const contains = (value) => {
+        if (_listHead === null) {
+            return false;
+        } else {
+            let tmp = _listHead
+            while(tmp != null) {
+                if (tmp.value === value) { 
+                    return true;
+                } 
+                tmp = tmp.nextNode
+            }
+            return false;
+        }
+
+    }
+
     
 
     const printList = () => {
@@ -115,6 +131,7 @@ const LinkedList = () => {
         tail,
         at,
         pop,
+        contains,
     }
 
 }
