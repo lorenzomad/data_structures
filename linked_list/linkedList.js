@@ -133,6 +133,29 @@ const LinkedList = () => {
         return listString
     }
 
+    const insertAt = (value, index) => {
+        if (index < 0) {
+            console.log("choose a valid positive integer index")
+            return;
+        }
+        
+        let tmp = _listHead
+        let prev = _listHead
+        while (index > 0) {
+            if (tmp.nextNode === null) {
+                console.log("the index is not valid")
+                return
+            }
+            // move to next node
+            prev = tmp
+            tmp = tmp.nextNode
+            index--
+        }
+        const newNode = Node(value)
+        prev.nextNode = newNode
+        newNode.nextNode = tmp
+    }
+
     return {
         get listHead() {
             return _listHead
@@ -150,6 +173,7 @@ const LinkedList = () => {
         contains,
         find,
         toString,
+        insertAt,
     }
 
 }

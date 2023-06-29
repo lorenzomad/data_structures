@@ -173,7 +173,9 @@ test('insert at valid value', () => {
     const node3 = Node(10)
     testList.listHead.nextNode.nextNode = node3
     testList.insertAt(4,1)
-    expect(testList.listHead.nextNode).toBe(4)
+    expect(testList.listHead.value).toBe(1)
+    expect(testList.listHead.nextNode.value).toBe(4)
+    expect(testList.listHead.nextNode.nextNode.value).toBe(5)
 });
 
 test('insert at non valid value', () => {
@@ -184,5 +186,5 @@ test('insert at non valid value', () => {
     const node3 = Node(10)
     testList.listHead.nextNode.nextNode = node3
     testList.insertAt(4,11)
-    expect(testList.listHead.nextNode.nextNode).toBe(10)
+    expect(testList.listHead.nextNode.nextNode.value).toBe(10)
 });
