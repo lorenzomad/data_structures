@@ -19,6 +19,9 @@ const Node = (value) => {
         get nextNode() {
             return nextNode;
         },
+        set nextNode(node) {
+            nextNode = node
+        },
         value,
     }
 }

@@ -26,6 +26,23 @@ const LinkedList = () => {
         }   
     }
 
+    const size = () => {
+        let size = 0
+        if (_listHead === null) {
+            return size
+        } else {
+            size++;
+            let tmp = _listHead 
+            while(tmp.nextNode != null) {
+                size++;
+                tmp = tmp.nextNode
+            }
+            return size
+        }
+
+         
+    }
+
 
     const printList = () => {
         _listHead.printNext()
@@ -35,11 +52,12 @@ const LinkedList = () => {
         get listHead() {
             return _listHead
         },
-        set listHead(Node) {
-            _listHead = Node
+        set listHead(node) {
+            _listHead = node
         },
         append,
-        prepend
+        prepend,
+        size,
     }
 
 }

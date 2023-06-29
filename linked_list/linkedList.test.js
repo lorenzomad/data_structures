@@ -39,3 +39,14 @@ test('prepend when first node already exists', () => {
     expect(testList.listHead.nextNode.value).toBe(4)
         
 });
+
+test('check size of list with no nodes', () => {
+    expect(testList.size()).toBe(0)
+});
+
+test('check size of list with 2 nodes', () => {
+    testList.listHead = Node(1)
+    testList.listHead.nextNode = Node(2)
+    expect(testList.size()).toBe(2)
+    
+});
