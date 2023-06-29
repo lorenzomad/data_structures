@@ -146,5 +146,5 @@ test('contains invalid', () => {
     testList.listHead = node1
     const node2 = Node(5)
     testList.listHead.nextNode = node2
-    expect(testList.contains(2)).toBe(null)
+    expect(testList.find(2)).toBe(null)
 });

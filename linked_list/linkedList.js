@@ -96,22 +96,30 @@ const LinkedList = () => {
     }
 
     const contains = (value) => {
-        if (_listHead === null) {
-            return false;
-        } else {
-            let tmp = _listHead
-            while(tmp != null) {
-                if (tmp.value === value) { 
-                    return true;
-                } 
-                tmp = tmp.nextNode
-            }
-            return false;
+        let tmp = _listHead
+        while(tmp != null) {
+            if (tmp.value === value) { 
+                return true;
+            } 
+            tmp = tmp.nextNode
         }
-
+        return false;
+    }
+    
+    const find = (value) => {
+        let tmp = _listHead
+        let index = 0
+        while(tmp != null) {
+            if (tmp.value === value) { 
+                return index;
+            } 
+            tmp = tmp.nextNode
+            index++
+        }
+        return null;
     }
 
-    
+
 
     
 
@@ -134,6 +142,7 @@ const LinkedList = () => {
         at,
         pop,
         contains,
+        find,
     }
 
 }
