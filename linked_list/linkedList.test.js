@@ -113,3 +113,19 @@ test('pop when 1 item', () => {
     testList.pop()
     expect(testList.listHead).toBe(null)
 });
+
+test('contains valid', () => {
+    const node1 = Node(1)
+    testList.listHead = node1
+    const node2 = Node(5)
+    testList.listHead.nextNode = node2
+    expect(testList.contains(5)).toBe(true)
+});
+
+test('contains invalid', () => {
+    const node1 = Node(1)
+    testList.listHead = node1
+    const node2 = Node(5)
+    testList.listHead.nextNode = node2
+    expect(testList.contains(2)).toBe(false)
+});
