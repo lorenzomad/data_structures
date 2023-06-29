@@ -1,35 +1,42 @@
-import Node from "./node.js"
+import Node from "./node"
 
 const LinkedList = () => {
-    
-    const listHead = null
 
-    const prepend = (value) => {
-        const  second = listHead
-        listHead= Node(value)
-        listHead.setNode(second)
-    }
+    let _listHead = null    
 
     const append = (value) => {
-        tmp = listHead
-        if (listHead === null) {
-            listHead = Node(value)
+        if (_listHead == null) {
+            _listHead = Node(value)
         } else {
-          while(tmp.nextNode != null) {
-            tmp = tmp.nextNode
-          } 
-          tmp.setNode(value)
+            let tmp = _listHead
+            while (tmp.nextNode != null) {
+                tmp = tmp.nextNode
+            }
+            tmp.setNode(Node(value))
         }
+    }
+
+    const prepend = (value) => {
+        if (_listHead === null) {
+            _listHead = Node(value)
+        } else {
+            const second = _listHead
+            _listHead = Node(value)
+            _listHead.setNode(second)
+        }   
     }
 
 
     const printList = () => {
-        listHead.printNext()
+        _listHead.printNext()
     }
 
     return {
         get listHead() {
-            return listHead
+            return _listHead
+        },
+        set listHead(Node) {
+            _listHead = Node
         },
         append,
         prepend
@@ -37,4 +44,4 @@ const LinkedList = () => {
 
 }
 
-export {LinkedList}
+export default LinkedList 

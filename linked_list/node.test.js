@@ -1,4 +1,4 @@
-import { Node } from "./node";
+import Node from "./node";
 
 test('set value', () => {
     const testNode = Node(10)

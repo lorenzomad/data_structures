@@ -23,4 +23,4 @@ const Node = (value) => {
     }
 }
 
-export {Node}
+export default Node

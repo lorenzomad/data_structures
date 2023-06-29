@@ -1,11 +1,11 @@
-import { LinkedList } from "./linkedList";
-import { Node } from "./node";
+import Node from "./node";
+import LinkedList from "./linkedList"
 
 
 let testList
 
 beforeEach(() => {  
-    testList = LinkedList
+    testList = LinkedList()
 })
 afterEach(() => {
     testList = null
@@ -14,15 +14,15 @@ afterEach(() => {
 test('append a first node', () => {
     
     testList.append(4)
-    expect(testList.headNode.value).toBe(4)
+    expect(testList.listHead.value).toBe(4)
 });
 
-test('append second node', () => {
-
+test('append second node check first 2 values', () => {
     
     
-    testList.append(1)
+    testList.listHead = Node(4)
     testList.append(2)
-    expect(test.headNode.value).toBe(1)
-    
+    expect(testList.listHead.value).toBe(4)
+    expect(testList.listHead.nextNode.value).toBe(2)
+        
 });
