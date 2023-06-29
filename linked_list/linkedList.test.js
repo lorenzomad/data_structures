@@ -161,5 +161,5 @@ test('toString non empty list', () => {
     testList.listHead.nextNode = node2
     const node3 = Node(10)
     testList.listHead.nextNode.nextNode = node3
-    expect(testList.toString()).toBe("( 1 ) -> ( 2 ) -> ( 3 ) -> null")
+    expect(testList.toString()).toBe("( 1 ) -> ( 5 ) -> ( 10 ) -> null")
 });

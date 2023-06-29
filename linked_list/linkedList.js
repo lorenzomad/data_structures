@@ -119,12 +119,18 @@ const LinkedList = () => {
         return null;
     }
 
-
-
-    
-
-    const printList = () => {
-        _listHead.printNext()
+    const toString= () => {
+        let tmp = _listHead;
+        let listString = ""
+        while (tmp != null) {
+            listString += "( ";
+            listString += tmp.value.toString()
+            listString += " )";
+            listString += " -> ";
+            tmp = tmp.nextNode
+        }
+        listString += "null"
+        return listString
     }
 
     return {
@@ -143,6 +149,7 @@ const LinkedList = () => {
         pop,
         contains,
         find,
+        toString,
     }
 
 }
