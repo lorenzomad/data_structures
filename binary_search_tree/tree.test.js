@@ -37,7 +37,7 @@ test('buildTree not ordered', () => {
 });
 
 test('insert value on empty tree', () => {
-    testTree = Tree([])
+    testTree = Tree(null)
     testTree.insert(11)
     expect(testTree.root.value).toBe(11)
     
@@ -67,10 +67,23 @@ test('delete existing (non-leaf) value from tree - only 1 child', () => {
 });
 
 test('delete existing (non-leaf) value from tree - both children', () => {
-    testTree = Tree([1, 5, 6, 9, 14, 15])
-    testTree.delete(5)
-    expect(testTree.root.right.value).toBe(14)
-    // TODO: complete this test case
+    const rootnode = Node(15)
+    const leftnode = Node(10)
+    leftnode.left = Node(8)
+    leftnode.right = Node(12)
+    rootnode.left  = leftnode
+    const rightnode = Node(20)
+    const rightleftnode = Node(18)
+    rightleftnode.left = Node(16)
+    rightleftnode.right = Node(19)
+    rightnode.left = rightleftnode
+    rightnode.right = Node(30)
+    
+    testTree = Tree([])
+    testTree.root = rootnode
+    testTree.delete(20)
+    expect(testTree.root.right.value).toBe(19)
+    expect(testTree.root.right.left.value).toBe(18)
 });
 
 test('delete non-existing value from tree', () => {
