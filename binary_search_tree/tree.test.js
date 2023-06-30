@@ -1,5 +1,5 @@
 import Tree from "./tree"
-
+import Node from "./node"
 let testTree
 
 afterEach(() => {
@@ -52,44 +52,40 @@ test('insert value on non-empty tree', () => {
     
 });
 
-test('delete existing (leaf) value from tree', () => {
+test('remove root when it\'s the only  node', () => {
+    testTree = Tree([1])
+    testTree.remove(1)
+    expect(testTree.root).toBe(null)    
+});
+
+test('remove existing (leaf) value from tree', () => {
     testTree = Tree([1, 5, 6, 9, 14, 15, 18])
+    expect(testTree.root.left.left.value).toBe(1)
     testTree.remove(1)
     expect(testTree.root.left.left).toBe(null)
     testTree.remove(14)
-    expect(testTree.root.right.right).toBe(null)    
+    expect(testTree.root.right.left).toBe(null)    
 });
 
-test('delete existing (non-leaf) value from tree - only 1 child', () => {
+test('remove existing (non-leaf) value from tree - only 1 child', () => {
     testTree = Tree([1, 5, 6, 9, 14, 15])
-    testTree.delete(15)
+    testTree.remove(15)
     expect(testTree.root.right.value).toBe(14)
 });
 
-test('delete existing (non-leaf) value from tree - both children', () => {
-    const rootnode = Node(15)
-    const leftnode = Node(10)
-    leftnode.left = Node(8)
-    leftnode.right = Node(12)
-    rootnode.left  = leftnode
-    const rightnode = Node(20)
-    const rightleftnode = Node(18)
-    rightleftnode.left = Node(16)
-    rightleftnode.right = Node(19)
-    rightnode.left = rightleftnode
-    rightnode.right = Node(30)
+test('remove existing (non-leaf) value from tree - both children', () => {
     
-    testTree = Tree([])
-    testTree.root = rootnode
-    testTree.delete(20)
+    testTree = Tree([15,10,8,12,20,18,16,19,30])
+    testTree.remove(20)
     expect(testTree.root.right.value).toBe(19)
     expect(testTree.root.right.left.value).toBe(18)
 });
 
-test('delete non-existing value from tree', () => {
+test('remove non-existing value from tree', () => {
     testTree = Tree([1, 5, 6, 9, 14, 15, 18])
     testTree.remove(20)
     expect(testTree.root.right.right.value).toBe(18)
     expect(testTree.root.left.left.value).toBe(1)
     expect(testTree.root.value).toBe(9)
 });
+
