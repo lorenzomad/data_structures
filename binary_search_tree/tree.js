@@ -37,8 +37,38 @@ const Tree = (array) => {
         _root = buildTree(_array)
     }
 
+    const insert = (value) => {
+        if (_root === null) {
+            _root = Node(value)
+        } else {
+            let tmp = _root
+            // run through the tree until you find the correct spot
+            while (tmp.value != value) {
+                if (value < tmp.value) {
+                    if (tmp.left === null) {
+                        tmp.left = Node(value)
+                        return 
+                    } else{
+                        tmp = tmp.left
+                    }
+                } else if(value > tmp.value) {
+                    if (tmp.right === null) {
+                        tmp.right = Node(value)
+                        return 
+                    } else{
+                        tmp = tmp.right
+                    }
+                }
+            }
+            console.log("the value is already in the tree")
+            return  
+        }
+
+    } 
+
     return {
         buildTree,
+        insert,
         get root () {
             return _root
         },
