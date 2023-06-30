@@ -12,7 +12,7 @@ test('initialize tree with 1 value', () => {
 });
 
 test('initialize with more complex tree', () => {
-    testTree = Tree([15,10,8,12,16,19,18,30,20])
+    testTree = Tree([15,10,8,12, 18,25,20])
     expect(testTree.root.value).toBe(15)
 });
 
