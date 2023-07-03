@@ -106,3 +106,26 @@ test('remove non-existing value from tree', () => {
     expect(testTree.root.value).toBe(9)
 });
 
+test('find existing value', () => {
+    testTree = Tree(null)
+    let root = Node(4)
+    let node1 = Node(5)
+    let node2 = Node(9)
+    node1.right = node2
+    root.right = node1
+
+    testTree.root = root 
+    expect(testTree.find(9)).toBe(node2)
+});
+
+test('find non-existing value ', () => {
+    testTree = Tree(null)
+    let root = Node(4)
+    let node1 = Node(5)
+    let node2 = Node(9)
+    node1.right = node2
+    root.right = node1
+
+    testTree.root = root 
+    expect(testTree.find(10)).toBe(null)
+});
