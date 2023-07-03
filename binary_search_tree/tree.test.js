@@ -149,3 +149,8 @@ test('inorder test no function', () => {
     testTree = Tree([1, 2, 3,  4,  5, 6, 7])
     expect(testTree.inOrder()).toEqual([1,2,3,4, 5,6,7])
 });
+
+test('postOrder test no function', () => {
+    testTree = Tree([1, 2, 3,  4,  5, 6, 7])
+    expect(testTree.postOrder()).toEqual([1,3,2,5,7,6,4])
+});
