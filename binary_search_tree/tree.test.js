@@ -271,3 +271,28 @@ test('rebalance tree', () => {
     testTree.rebalance()
     expect(testTree.isBalanced()).toBe(true)
 });
+
+test('end 2 end test', () => {
+    
+    let array = [] 
+    for (let i = 0; i< 15 ; i++) {
+        array.push(Math.floor(100 * Math.random()))
+    }
+    testTree = Tree(array)
+    expect(testTree.isBalanced()).toBe(true)
+    console.log(testTree.inOrder())
+    console.log(testTree.levelOrder())
+    console.log(testTree.preOrder())
+    console.log(testTree.postOrder())
+    
+    for (let i = 0; i< 100 ; i++) {
+        testTree.insert(Math.floor(1000 * Math.random()))
+    }
+    expect(testTree.isBalanced()).toBe(false)
+    testTree.rebalance()
+    expect(testTree.isBalanced()).toBe(true)
+    console.log(testTree.inOrder())
+    console.log(testTree.levelOrder())
+    console.log(testTree.preOrder())
+    console.log(testTree.postOrder())
+});
