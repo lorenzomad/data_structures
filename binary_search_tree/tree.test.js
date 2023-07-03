@@ -195,7 +195,7 @@ test('depth function of existing node', () => {
 
 });
 
-test('check if the tree is balanced', () => {
+test('not balanced tree check ', () => {
     testTree = Tree(null)
     let root = Node(9)
     let node1 = Node(10)
@@ -208,6 +208,7 @@ test('check if the tree is balanced', () => {
     root.left = node3
 
     testTree.root = root
+    expect(testTree.isBalanced()).toBe(false)
 });
 
 
@@ -253,3 +254,20 @@ test('balanced tree check ', () => {
     
 });
 
+test('rebalance tree', () => {
+    testTree = Tree(null)
+    let root = Node(9)
+    let node1 = Node(10)
+    let node2 = Node(118)
+    let node3 = Node(1) 
+    let node4 = Node(15)
+    node2.left = node4
+    node1.right = node2
+    root.right = node1
+    root.left = node3
+
+    testTree.root = root
+    
+    testTree.rebalance()
+    expect(testTree.isBalanced()).toBe(true)
+});

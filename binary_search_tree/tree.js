@@ -300,6 +300,11 @@ const Tree = (array) => {
         return (isBalanced(node.left) && isBalanced(node.right))
     }
 
+    const rebalance = () => {
+        array = inOrder()
+        buildTree(array)
+    }
+
     return {
         buildTree,
         insert,
@@ -312,6 +317,7 @@ const Tree = (array) => {
         height,
         depth,
         isBalanced,
+        rebalance,
         get root () {
             return _root
         },
