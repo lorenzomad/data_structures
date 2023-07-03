@@ -115,7 +115,7 @@ test('find existing value', () => {
     root.right = node1
 
     testTree.root = root 
-    expect(testTree.find(9)).toBe(node2)
+    expect(testTree.find(9)[0]).toBe(node2)
 });
 
 test('find non-existing value ', () => {
@@ -128,4 +128,15 @@ test('find non-existing value ', () => {
 
     testTree.root = root 
     expect(testTree.find(10)).toBe(null)
+});
+
+test('levelOrder function trasversal with function', () => {
+    testTree = Tree([1, 2, 3, 4, 5, 6, 7])
+    expect(testTree.levelOrder((x) => {return (x*3)} )).toBe([12,6,18,3,9,15,21])
+    [
+});
+
+test('levelOrder function trasversal no function', () => {
+    testTree = Tree([1, 2, 3, 4, 5, 6, 7])
+    expect(testTree.levelOrder()).toBe([4,2,6,1,3,5,7])
 });

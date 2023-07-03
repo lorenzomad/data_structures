@@ -68,7 +68,7 @@ const Tree = (array) => {
 
     const find = (value) => {
         // auxiliary function to return the node with the required value and its parent
-        //  also returns the ifnormation about what was the last turn
+        // also returns the ifnormation about what was the last turn
         // else it returns false
         if (_root === null) {
             return null;
@@ -172,6 +172,7 @@ const Tree = (array) => {
         buildTree,
         insert,
         remove,
+        find, 
         get root () {
             return _root
         },
