@@ -174,3 +174,23 @@ test('height function of existing node', () => {
     expect(testTree.height(root)).toBe(3)
 
 });
+
+test('depth function of existing node', () => {
+    testTree = Tree(null)
+    let root = Node(9)
+    let node1 = Node(10)
+    let node2 = Node(118)
+    let node3 = Node(1) 
+    let node4 = Node(15)
+    node2.left = node4
+    node1.right = node2
+    root.right = node1
+    root.left = node3
+
+    testTree.root = root
+
+    expect(testTree.depth(node4)).toBe(3)
+
+    expect(testTree.depth(root)).toBe(0)
+
+});

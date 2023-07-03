@@ -67,7 +67,7 @@ const Tree = (array) => {
     } 
 
     const find = (value) => {
-        // auxiliary function to return the node with the required value and its parent
+        // function to return the node with the required value and its parent
         // also returns the ifnormation about what was the last turn
         // else it returns false
         if (_root === null) {
@@ -252,7 +252,29 @@ const Tree = (array) => {
         
     }
 
-
+    const depth = (node) => {
+        // measures the depth of a node from the root
+        let count = 0
+        if (_root == null) {
+            return null
+        }
+        let tmp = _root 
+        while (tmp != null) {
+            if (node.value == tmp.value){
+                return count 
+            }
+            if (node.value > tmp.value){
+                tmp = tmp.right
+                count++
+            }
+            if (node.value < tmp.value) {
+                tmp = tmp.left
+                count++
+            }
+        }
+        // not found 
+        return null;
+    }
 
     return {
         buildTree,
@@ -264,7 +286,7 @@ const Tree = (array) => {
         inOrder,
         postOrder,
         height,
-
+        depth,
         get root () {
             return _root
         },
