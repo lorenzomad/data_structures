@@ -9,6 +9,16 @@ afterEach(() => {
 test('initialize tree with 1 value', () => {
     testTree = Tree([1])
     expect(testTree.root.value).toBe(1)
+
+    testTree = Tree([1,2,3,4])
+    expect(testTree.root.value).toBe(3)
+
+    testTree = Tree([1, 2, 3, 4, 5, 6, 7])
+    expect(testTree.root.value).toBe(4)
+    expect(testTree.root.left.value).toBe(2)
+    expect(testTree.root.right.value).toBe(6)
+
+
 });
 
 test('initialize with more complex tree', () => {
