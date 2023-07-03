@@ -96,16 +96,32 @@ const Tree = (array) => {
         }
     }
 
-    const findSuccessor = (value) => {
-        // returns the successor node to the value given
+    const removeSuccessor = (value) => {
+        // removes the successro node for the value given and returns the node 
         const startNode = find(value)[0]
-        let tmp = startNode.right
+        let parent = startNode;
+        let rightNode = true;
+        let tmp = startNode.right;
 
+        // iterate until you get to the one without a left 
+        // (inorder successor)
         while (tmp.left != null) {
+            parent = tmp;
             tmp = tmp.left
+            rightNode = false;
         }
+        // if it was rightnode then replace the right part with its right
+        if (rightNode) {
+            parent.right = tmp.right
+        } else {
+            // if it was left do the opposite
+            parent.left = tmp.right
+        }
+        // remove its successors
+        tmp.right = null
         return tmp
     }
+    
 
     const remove = (value) => {
         // removes the value from the binary search tree
@@ -130,13 +146,10 @@ const Tree = (array) => {
                 }
             } 
         } else if (removableNode.right != null && removableNode.left != null) {
-            // TODO: to be fixed
             // complicated case with both children
             // find the successor node
-            const successor = findSuccessor(removableNode.value)
+            const successor = removeSuccessor(removableNode.value) 
             removableNode.value = successor.value
-            // iteratively repeat if needed
-            remove(successor.value) 
         } else {
             //case in which there is just one child (replace the link with the parent)
             if (removableNode.right != null) {

@@ -74,11 +74,16 @@ test('remove existing (non-leaf) value from tree - only 1 child', () => {
 });
 
 test('remove existing (non-leaf) value from tree - both children', () => {
+
+    testTree = Tree([1, 5, 6, 9, 14, 15, 18])
+    testTree.remove(15)
+    expect(testTree.root.right.value).toBe(18)
     
-    testTree = Tree([15,10,8,12,20,18,16,19,30])
-    testTree.remove(20)
-    expect(testTree.root.right.value).toBe(19)
-    expect(testTree.root.right.left.value).toBe(18)
+    
+    // testTree = Tree([15,10,8,12,20,18,16,19,30])
+    // testTree.remove(20)
+    // expect(testTree.root.right.value).toBe(19)
+    // expect(testTree.root.right.left.value).toBe(18)
 });
 
 test('remove non-existing value from tree', () => {
