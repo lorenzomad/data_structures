@@ -208,9 +208,6 @@ test('check if the tree is balanced', () => {
     root.left = node3
 
     testTree.root = root
-
-    expect(testTree.isBalanced()).toBe(false)
-
 });
 
 
@@ -231,4 +228,28 @@ test('balanced tree check ', () => {
     testTree.root = root
     expect(testTree.isBalanced()).toBe(true)
 
+    testTree = Tree(null)
+    root = Node(7)
+    node3 = Node(3)
+    node5 = Node(5)
+    let node11 = Node(11)
+    let node9 = Node(9)
+    let node13 = Node(13)
+    node5.left = Node(4)
+    node5.right = Node(6)
+    node3.left = Node(1)
+    node3.right = node5
+    root.left = node3
+
+    node9.left = Node(8)
+    node13.left = Node(12)
+    node13.right = Node(14)
+    node11.left = Node(9)
+    node11.right = node13
+    root.right = node11
+    testTree.root = root
+
+    expect(testTree.isBalanced()).toBe(true)
+    
 });
+

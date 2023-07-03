@@ -276,6 +276,30 @@ const Tree = (array) => {
         return null;
     }
 
+    const isBalanced = (node = _root) => {
+        if (height(node) == null) {
+            return true
+        }
+        
+        if (height(node == 0)) {
+            return true;
+        } 
+
+        if (node.left == null) {
+            if (height(node.right) > 0) {
+                return false
+            }
+        } else if (node.right == null) {
+            if (height(node.left) > 0) {
+                return false
+            }
+        } else if (Math.abs(height(node.left) - height(node.right) > 1)) {
+            return false
+        }
+
+        return (isBalanced(node.left) && isBalanced(node.right))
+    }
+
     return {
         buildTree,
         insert,
@@ -287,6 +311,7 @@ const Tree = (array) => {
         postOrder,
         height,
         depth,
+        isBalanced,
         get root () {
             return _root
         },
