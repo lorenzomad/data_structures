@@ -190,12 +190,28 @@ const Tree = (array) => {
         return output
     }
 
+    const preOrder = (node = _root, funct = (x) => {return x.value}) => {
+        // trasverse the tree by preorder method and performs the function on the values
+        // preorder is root, left , right
+        let output = []
+        output.push(funct(node))
+
+        if (node.left != null) {
+            output.push.apply(output, preOrder(node.left, funct))
+        }
+        if (node.right != null) {
+            output.push.apply(output, preOrder(node.right, funct))
+        }
+        return output;
+    }
+
     return {
         buildTree,
         insert,
         remove,
         find, 
         levelOrder,
+        preOrder,
         get root () {
             return _root
         },

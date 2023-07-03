@@ -139,3 +139,8 @@ test('levelOrder function trasversal no function', () => {
     testTree = Tree([1, 2, 3, 4, 5, 6, 7])
     expect(testTree.levelOrder()).toEqual([4,2,6,1,3,5,7])
 });
+
+test('preOrder function trasversal no function', () => {
+    testTree = Tree([1, 2, 3,  4,  5, 6, 7])
+    expect(testTree.preOrder()).toEqual([4,2,1,3,6,5,7])
+});
