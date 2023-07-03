@@ -132,11 +132,10 @@ test('find non-existing value ', () => {
 
 test('levelOrder function trasversal with function', () => {
     testTree = Tree([1, 2, 3, 4, 5, 6, 7])
-    expect(testTree.levelOrder((x) => {return (x*3)} )).toBe([12,6,18,3,9,15,21])
-    [
+    expect(testTree.levelOrder((x) => {return (x.value*3)} )).toEqual([12,6,18,3,9,15,21])
 });
 
 test('levelOrder function trasversal no function', () => {
     testTree = Tree([1, 2, 3, 4, 5, 6, 7])
-    expect(testTree.levelOrder()).toBe([4,2,6,1,3,5,7])
+    expect(testTree.levelOrder()).toEqual([4,2,6,1,3,5,7])
 });

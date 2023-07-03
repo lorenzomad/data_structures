@@ -168,11 +168,34 @@ const Tree = (array) => {
         }
     }
 
+    const levelOrder = (funct = (x) => {return x.value}) => {
+        // trasverse the tree by level and performs the function on the values
+        let output = []
+        let queue  = []
+        queue.push(_root)
+        let tmp = null
+        
+        while (queue.length > 0 ) {
+            tmp = queue.shift()
+            if (tmp != null) {
+                output.push(funct(tmp))
+                if (tmp.left != null) {
+                    queue.push(tmp.left);
+                } 
+                if (tmp.right != null) {
+                    queue.push(tmp.right);
+                }
+            }
+        }
+        return output
+    }
+
     return {
         buildTree,
         insert,
         remove,
         find, 
+        levelOrder,
         get root () {
             return _root
         },
