@@ -236,6 +236,22 @@ const Tree = (array) => {
         return output;
     }
 
+    const height = (node) => {
+        // returns length up to the leaf towards the bottom
+        if (node == null ) {
+            return null
+        }
+        if (node.left == null && node.right == null){
+            //leaf node 
+            return 0;
+        } else {
+            const leftHeight = height(node.left) + 1
+            const rightHeight = height(node.right) + 1
+            return Math.max(leftHeight, rightHeight);
+        }
+        
+    }
+
 
 
     return {
@@ -247,6 +263,8 @@ const Tree = (array) => {
         preOrder,
         inOrder,
         postOrder,
+        height,
+
         get root () {
             return _root
         },

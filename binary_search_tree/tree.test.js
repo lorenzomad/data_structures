@@ -154,3 +154,23 @@ test('postOrder test no function', () => {
     testTree = Tree([1, 2, 3,  4,  5, 6, 7])
     expect(testTree.postOrder()).toEqual([1,3,2,5,7,6,4])
 });
+
+test('height function of existing node', () => {
+    testTree = Tree(null)
+    let root = Node(4)
+    let node1 = Node(5)
+    let node2 = Node(9)
+    let node3 = Node(1) 
+    let node4 = Node(15)
+    node2.left = node4
+    node1.right = node2
+    root.right = node1
+    root.left = node3
+
+    testTree.root = root
+
+    expect(testTree.height(node4)).toBe(0)
+
+    expect(testTree.height(root)).toBe(3)
+
+});
