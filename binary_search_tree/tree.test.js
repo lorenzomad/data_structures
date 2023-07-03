@@ -144,3 +144,8 @@ test('preOrder function trasversal no function', () => {
     testTree = Tree([1, 2, 3,  4,  5, 6, 7])
     expect(testTree.preOrder()).toEqual([4,2,1,3,6,5,7])
 });
+
+test('inorder test no function', () => {
+    testTree = Tree([1, 2, 3,  4,  5, 6, 7])
+    expect(testTree.inOrder()).toEqual([1,2,3,4, 5,6,7])
+});

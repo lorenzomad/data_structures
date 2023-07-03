@@ -205,6 +205,22 @@ const Tree = (array) => {
         return output;
     }
 
+    const inOrder = (node = _root, funct = (x) => {return x.value}) => {
+        // trasverse the tree by inorder method and performs the function on the values
+        // preorder is left, root , right 
+        let output = []
+        
+
+        if (node.left != null) {
+            output.push.apply(output, inOrder(node.left, funct))
+        }
+        output.push(funct(node))
+        if (node.right != null) {
+            output.push.apply(output, inOrder(node.right, funct))
+        }
+        return output;
+    }
+
     return {
         buildTree,
         insert,
@@ -212,6 +228,7 @@ const Tree = (array) => {
         find, 
         levelOrder,
         preOrder,
+        inOrder,
         get root () {
             return _root
         },
